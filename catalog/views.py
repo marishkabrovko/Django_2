@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, "home.html")
 
 
 def contact(request):
@@ -13,4 +13,4 @@ def contact(request):
         message = request.POST.get("message")
 
         return HttpResponse(f"Спасибо, {name}! Сообщение получено")
-    return render(request, 'contacts.html')
+    return render(request, "contacts.html")
