@@ -27,8 +27,7 @@ class ProductForm(forms.ModelForm):
 
     def clean_description(self):
         forbidden_words = ["казино", "криптовалюта", "крипта", "биржа", "дешево", "дёшево", "бесплатно", "обман",
-                           "полиция",
-                           "радар"]
+                           "полиция","радар"]
         description = self.cleaned_data.get('description')
         for word in forbidden_words:
             if word in description.lower():
