@@ -1,0 +1,23 @@
+{% extends 'blogs/base.html' %}
+{% load my_tags %}
+
+{% block content %}
+<div class="row">
+  <div class="col-6">
+    <img src="{{ blog.image | media_filter }}" class="rounded" style="max-width: 100%" alt="{{ object.title }}">
+  </div>
+  <div class="col-6">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ object.title | upper }}</h5>
+      <p class="card-text">{{ object.article }}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <a class="btn btn-secondary" href="{% url 'blogs:blog_list' %}" role="button">Назад</a>
+          <a class="btn btn-primary" href="{% url 'blogs:blog_update' blog.pk %}" role="button">Редактировать</a>
+          <a class="btn btn-danger" href="{% url 'blogs:blog_delete' blog.pk %}" role="button">Удалить</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
